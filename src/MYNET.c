@@ -68,7 +68,7 @@ int connect_to_port(int sock_fd, int ip_family, const char* ip_addr, unsigned sh
     sockaddr_in name;
     name.sin_family = ip_family;
     name.sin_port = htons(port);
-    name.sin_addr.s_addr = htonl(atoi(ip_addr));
+    name.sin_addr.s_addr = inet_addr(ip_addr);
     if(connect(sock_fd, (sockaddr*)&name, sizeof(name)) == -1)
     {
         error("Unable to connect");
