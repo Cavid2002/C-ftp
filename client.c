@@ -6,6 +6,10 @@
 
 int main(int argc, char* argv[1])
 {
+    if(argc != 2)
+    {
+        error("Invalid arguments");
+    }
     int cln_fd = create_socket(AF_INET, SOCK_STREAM);
     connect_to_port(cln_fd, AF_INET, argv[1], 3340);
 
